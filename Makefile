@@ -1,10 +1,11 @@
 obj-m := awusb.o
-KDIR := /lib/modules/$(shell uname -r)/build
+KVERSION := $(shell uname -r)
+KDIR := /lib/modules/$(KVERSION)/build
 PWD := $(shell pwd)
 
 default:
-	$(MAKE) -C $(KDIR) KBUILD_EXTMOD=$(PWD) modules
+	$(MAKE) -C $(KDIR) M=$(PWD) modules
 clean:
-	$(MAKE) -C $(KDIR) KBUILD_EXTMOD=$(PWD) clean
+	$(MAKE) -C $(KDIR) M=$(PWD) clean
 	rm -rf Module.markers module.order module.sysvers 
 	
