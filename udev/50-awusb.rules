@@ -1,1 +1,2 @@
-KERNEL=="aw_efex[0-9]*", MODE="0666"
+ATTR{idVendor}=="1f3a", ATTR{idProduct}=="efe8", GROUP="users", MODE="0666"
+
